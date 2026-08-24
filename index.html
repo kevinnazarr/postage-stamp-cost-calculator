@@ -8,59 +8,107 @@
 </head>
 <body>
   <main class="container">
-    <h1>Postage Stamp Cost Calculator</h1>
+    <header class="page-header">
+      <div class="logo">📦</div>
+      <h1>Postage Stamp Cost Calculator</h1>
+      <p class="subtitle">Calculate estimated postage for your package quickly and easily.</p>
+    </header>
 
-    <section class="calculator" aria-label="Postage calculator">
-      <div class="form-group">
-        <label for="weight">Package Weight (ounces)</label>
-        <input
-          type="number"
-          id="weight"
-          min="0.1"
-          step="0.1"
-          placeholder="e.g. 3.5"
-          aria-describedby="weight-help"
-        >
-        <span id="weight-help" class="help-text">Enter the weight of your package</span>
-        <span id="weight-error" class="error-text" role="alert" hidden>Please enter a valid weight.</span>
+    <!-- FORM INPUT -->
+    <section class="card calculator" aria-label="Shipping calculator">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="weight">Package Weight (oz)</label>
+          <input
+            type="number"
+            id="weight"
+            min="0.1"
+            step="0.1"
+            placeholder="e.g. 3.5"
+            aria-describedby="weight-help weight-error"
+          >
+          <span id="weight-help" class="help-text">Enter the weight of your package in ounces</span>
+          <span id="weight-error" class="error-text" role="alert" hidden>Please enter a valid weight (a number greater than 0).</span>
+        </div>
+
+        <div class="form-group">
+          <label for="mailType">Mail Type</label>
+          <select id="mailType">
+            <option value="first-class-letter">First-Class Letter</option>
+            <option value="first-class-large-envelope">First-Class Large Envelope</option>
+            <option value="priority-mail-flat-rate">Priority Mail Flat Rate</option>
+          </select>
+        </div>
       </div>
 
-      <div class="form-group">
-        <label for="mailType">Mail Type</label>
-        <select id="mailType">
-          <option value="first-class-letter">First-Class Letter</option>
-          <option value="first-class-large-envelope">First-Class Large Envelope</option>
-          <option value="priority-mail-flat-rate">Priority Mail Flat Rate</option>
-        </select>
-      </div>
-
-      <button id="calculateBtn" type="button">Calculate Postage</button>
+      <button id="calculateBtn" type="button" class="btn-primary">
+        Calculate Postage
+      </button>
     </section>
 
-    <section id="resultSection" class="result-section" hidden aria-label="Cost breakdown">
+    <!-- RESULT -->
+    <section id="resultSection" class="card result-section" hidden aria-label="Cost breakdown">
       <h2>Estimated Postage</h2>
+
+      <div class="result-summary">
+        <div class="summary-label">Total Estimated Cost</div>
+        <div id="totalCostDisplay" class="summary-total">$0.00</div>
+      </div>
+
       <div class="cost-breakdown">
         <div class="cost-row">
           <span class="cost-label">Base Rate</span>
-          <span id="baseRate" class="cost-value">—</span>
+          <span id="baseRate" class="cost-value">&mdash;</span>
         </div>
         <div class="cost-row">
           <span class="cost-label">Weight Overage</span>
-          <span id="overageFee" class="cost-value">—</span>
+          <span id="overageFee" class="cost-value">&mdash;</span>
         </div>
         <div class="cost-row cost-total">
           <span class="cost-label">Total</span>
-          <span id="totalCost" class="cost-value cost-highlight">—</span>
+          <span id="totalCost" class="cost-value cost-highlight">&mdash;</span>
         </div>
+      </div>
+
+      <div class="result-info">
+        <span class="info-badge" id="weightInfo">&mdash;</span>
+        <span class="info-badge" id="serviceInfo">&mdash;</span>
       </div>
     </section>
 
-    <section id="historySection" class="history-section" hidden aria-label="Recent calculations">
-      <h2>Recent Calculations</h2>
+    <!-- HISTORY -->
+    <section id="historySection" class="card history-section" hidden aria-label="Calculation history">
+      <div class="history-header">
+        <h2>Recent Calculations <span id="historyCount" class="badge">0</span></h2>
+        <button id="clearHistoryBtn" type="button" class="btn-danger-sm">Clear History</button>
+      </div>
       <ul id="historyList" class="history-list"></ul>
-      <button id="clearHistoryBtn" type="button" class="btn-secondary">Clear History</button>
+    </section>
+
+    <!-- RATE TABLE REFERENCE -->
+    <section class="card reference-section">
+      <h2>Rate Table Reference</h2>
+      <p class="help-text" style="margin-bottom: 0.75rem;">All rates in USD. Fixed example values &mdash; not live USPS rates.</p>
+      <div class="table-wrapper">
+        <table id="rateTable" class="rate-table">
+          <thead>
+            <tr>
+              <th>Mail Type</th>
+              <th>Base Rate</th>
+              <th>Free (oz)</th>
+              <th>Per oz</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </section>
   </main>
+
+  <footer class="page-footer">
+    <p>Rates are fixed example values for demonstration. Not official USPS or carrier rates.</p>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
