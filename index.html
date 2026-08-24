@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Postage Stamp Cost Calculator</title>
+  <title>Kalkulator Biaya Ongkos Kirim</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="container">
     <header class="page-header">
       <div class="logo">📦</div>
-      <h1>Postage Stamp Cost Calculator</h1>
-      <p class="subtitle">Calculate estimated postage for your package quickly and easily.</p>
+      <h1>Kalkulator Biaya Ongkos Kirim</h1>
+      <p class="subtitle">Hitung estimasi biaya kirim paket Anda secara cepat dan mudah.</p>
     </header>
 
     <!-- FORM INPUT -->
-    <section class="card calculator" aria-label="Shipping calculator">
+    <section class="card calculator" aria-label="Formulir pengiriman">
       <div class="form-row">
         <div class="form-group">
-          <label for="weight">Package Weight (oz)</label>
+          <label for="weight">Berat Paket (oz)</label>
           <input
             type="number"
             id="weight"
@@ -27,41 +27,41 @@
             placeholder="e.g. 3.5"
             aria-describedby="weight-help weight-error"
           >
-          <span id="weight-help" class="help-text">Enter the weight of your package in ounces</span>
-          <span id="weight-error" class="error-text" role="alert" hidden>Please enter a valid weight (a number greater than 0).</span>
+          <span id="weight-help" class="help-text">Masukkan berat paket dalam ounce</span>
+          <span id="weight-error" class="error-text" role="alert" hidden>Masukkan berat yang valid (angka lebih dari 0).</span>
         </div>
 
         <div class="form-group">
-          <label for="mailType">Mail Type</label>
+          <label for="mailType">Jenis Layanan</label>
           <select id="mailType">
-            <option value="first-class-letter">First-Class Letter</option>
-            <option value="first-class-large-envelope">First-Class Large Envelope</option>
+            <option value="first-class-letter">Surat Biasa First-Class</option>
+            <option value="first-class-large-envelope">Amplop Besar First-Class</option>
             <option value="priority-mail-flat-rate">Priority Mail Flat Rate</option>
           </select>
         </div>
       </div>
 
       <button id="calculateBtn" type="button" class="btn-primary">
-        Calculate Postage
+        Hitung Ongkos Kirim
       </button>
     </section>
 
     <!-- RESULT -->
-    <section id="resultSection" class="card result-section" hidden aria-label="Cost breakdown">
-      <h2>Estimated Postage</h2>
+    <section id="resultSection" class="card result-section" hidden aria-label="Rincian biaya">
+      <h2>Estimasi Biaya Kirim</h2>
 
       <div class="result-summary">
-        <div class="summary-label">Total Estimated Cost</div>
+        <div class="summary-label">Total Estimasi Biaya</div>
         <div id="totalCostDisplay" class="summary-total">$0.00</div>
       </div>
 
       <div class="cost-breakdown">
         <div class="cost-row">
-          <span class="cost-label">Base Rate</span>
+          <span class="cost-label">Tarif Dasar</span>
           <span id="baseRate" class="cost-value">&mdash;</span>
         </div>
         <div class="cost-row">
-          <span class="cost-label">Weight Overage</span>
+          <span class="cost-label">Biaya Kelebihan Berat</span>
           <span id="overageFee" class="cost-value">&mdash;</span>
         </div>
         <div class="cost-row cost-total">
@@ -77,25 +77,25 @@
     </section>
 
     <!-- HISTORY -->
-    <section id="historySection" class="card history-section" hidden aria-label="Calculation history">
+    <section id="historySection" class="card history-section" hidden aria-label="Riwayat perhitungan">
       <div class="history-header">
-        <h2>Recent Calculations <span id="historyCount" class="badge">0</span></h2>
-        <button id="clearHistoryBtn" type="button" class="btn-danger-sm">Clear History</button>
+        <h2>Riwayat Perhitungan <span id="historyCount" class="badge">0</span></h2>
+        <button id="clearHistoryBtn" type="button" class="btn-danger-sm">Hapus Riwayat</button>
       </div>
       <ul id="historyList" class="history-list"></ul>
     </section>
 
     <!-- RATE TABLE REFERENCE -->
     <section class="card reference-section">
-      <h2>Rate Table Reference</h2>
-      <p class="help-text" style="margin-bottom: 0.75rem;">All rates in USD. Fixed example values &mdash; not live USPS rates.</p>
+      <h2>Tabel Referensi Tarif</h2>
+      <p class="help-text" style="margin-bottom: 0.75rem;">Semua tarif dalam USD. Nilai contoh tetap &mdash; bukan tarif USPS resmi.</p>
       <div class="table-wrapper">
         <table id="rateTable" class="rate-table">
           <thead>
             <tr>
-              <th>Mail Type</th>
-              <th>Base Rate</th>
-              <th>Free (oz)</th>
+              <th>Jenis Layanan</th>
+              <th>Tarif Dasar</th>
+              <th>Bebas (oz)</th>
               <th>Per oz</th>
             </tr>
           </thead>
@@ -106,7 +106,7 @@
   </main>
 
   <footer class="page-footer">
-    <p>Rates are fixed example values for demonstration. Not official USPS or carrier rates.</p>
+    <p>Tarif adalah nilai contoh tetap untuk demonstrasi. Bukan tarif resmi USPS atau kurir.</p>
   </footer>
 
   <script src="script.js"></script>

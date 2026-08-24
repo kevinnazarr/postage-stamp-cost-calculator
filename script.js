@@ -7,13 +7,13 @@
 
 const RATE_TABLE = {
   "first-class-letter": {
-    name: "First-Class Letter",
+    name: "Surat Biasa First-Class",
     baseRate: 0.73,      // up to 1 oz
     freeOunces: 1,       // first ounce included in base rate
     perOzRate: 0.24,     // per additional ounce
   },
   "first-class-large-envelope": {
-    name: "First-Class Large Envelope",
+    name: "Amplop Besar First-Class",
     baseRate: 1.35,      // up to 1 oz
     freeOunces: 1,
     perOzRate: 0.24,
@@ -187,7 +187,7 @@ function renderReferenceTable() {
     tr.innerHTML =
       "<td>" + r.name + "</td>" +
       "<td>" + formatCurrency(r.baseRate) + "</td>" +
-      "<td>" + (r.freeOunces === Infinity ? "All" : r.freeOunces + " oz") + "</td>" +
+      "<td>" + (r.freeOunces === Infinity ? "Semua" : r.freeOunces + " oz") + "</td>" +
       "<td>" + formatCurrency(r.perOzRate) + "/oz</td>";
     rateTableBody.appendChild(tr);
   }
